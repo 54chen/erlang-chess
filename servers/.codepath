@@ -1,0 +1,11 @@
+#Thu Nov 13 15:36:21 CST 2008
+source_dirs=src
+backend_cookie=
+backend_name=erts
+external_includes=
+make_unique=true
+include_dirs=include
+use_pathz=true
+output_dir=ebin
+backend_node=erlide
+external_modules=
