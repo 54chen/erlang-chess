@@ -10,7 +10,8 @@ http://code.google.com/p/erl-chess
 ----------
 进入编译目标目录( .beam文件在此 )
 
-如:cd("/home/hantuo/www/game/chess/servers/ebin").
+如:
+    cd("/home/hantuo/www/game/chess/servers/ebin").
 
 启动flash套接字包装器
 如:
@@ -40,7 +41,7 @@ http://code.google.com/p/erl-chess
 进入编译目标目录
 如
 
-cd("/home/hantuo/www/game/chess/servers/ebin").
+    cd("/home/hantuo/www/game/chess/servers/ebin").
 
 启动name server
     ai_serverlist:start_link().
@@ -59,21 +60,21 @@ AI服务对外提供的接口为http,所以首先进入一个新的erlang shell,
 
     inets:start().
     inets:start(httpd,[{modules,[
-mod_alias,mod_esi,mod_get,mod_head,mod_log,mod_disk_log
-]
-},
-{port,8007},
-{server_name,"localhost"},
-{server_admin,"chenzhen@xiaomi.com"},
-{server_root,"."},
-{max_clients,10240},
-{document_root,"."},
-{directory_inde,"index.html"},
-{default_type,"text/plain"},
-{error_log, "error.log"},
-{security_log, "security.log"},
-{transfer_log, "transfer.log"},
-{erl_script_alias, {"/chess", [ai,io]}}]).
+    mod_alias,mod_esi,mod_get,mod_head,mod_log,mod_disk_log
+    ]
+    },
+    {port,8007},
+    {server_name,"localhost"},
+    {server_admin,"chenzhen@xiaomi.com"},
+    {server_root,"."},
+    {max_clients,10240},
+    {document_root,"."},
+    {directory_inde,"index.html"},
+    {default_type,"text/plain"},
+    {error_log, "error.log"},
+    {security_log, "security.log"},
+    {transfer_log, "transfer.log"},
+    {erl_script_alias, {"/chess", [ai,io]}}]).
 
 上面操作启动了ai功能的http接口服务
 
@@ -85,8 +86,10 @@ mod_alias,mod_esi,mod_get,mod_head,mod_log,mod_disk_log
 
     inets:start().
 
-运行ai客户户 
+运行ai客户户
+
     ai_adapter:start("fffaaa", "127.0.0.1", 8006, 1, "http://127.0.0.1:8007/chess/ai/get"). 
+
 参数说明:
 
 1.key:string
@@ -99,4 +102,4 @@ mod_alias,mod_esi,mod_get,mod_head,mod_log,mod_disk_log
 
 5.ai server位置:string.
 
-至此一个ai的client已经可以使用,如果使用主机模式,便可以使用一个flash客户端与之连接了.当然,也可以启动另外一个ai client,从而使电脑对电脑下棋
+至此一个ai的client已经可以使用,如果使用主机模式,便可以使用一个flash客户端与之连接了.当然,也可以启动另外一个ai client,从而使电脑对电脑下棋.  
